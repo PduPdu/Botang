@@ -57,4 +57,4 @@ async def on_message(message):
         await Yello.send_file(message.channel, "imnotevengonnasayitsname.jpg")
 
 #bot token
-Yello.run("MzM3MDY2MDA0MDIwNDYxNTY5.DFBctA.VxgPKQFvOpZds5hvw6wi7rzzIT4")
+Yello.run("token")
