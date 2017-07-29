@@ -19,7 +19,7 @@ async def on_ready():
     print(Yello.user.id)
     print("-----")
 
-def do_command_stuff(command, channel):
+def do_command_stuff(command, channel, author):
     #normal shitty help message
     if command.startswith("help"):
         await Yello.send_message(channel,
@@ -37,14 +37,27 @@ def do_command_stuff(command, channel):
     #this was supossed to be a secret but i guess it isn't now :(
     elif command.startswith("don'tdaretousethiscommandisweartogodifyoufuckinguseityou'llgetfuckingbannedkiddo"):
         await Yello.send_file(channel, "imnotevengonnasayitsname.jpg")
+    elif command.startswith("rate"):
+        thing_to_rate = strip(command[4:]) # remove the "rate" and also spaces at the beginning/end
+        if thing_to_rate = "": # in case someone didn't specify what to rate
+            await Yello.send_message(channel, "Type `{}rate <thing>` to rate a thing.").format(prefixes[0])
+        elif thing_to_rate.count("yellow") > 0 or thing_to_rate.count("orang") > 0: # if there is orang or yellow
+            await Yello.send_message(channel,
+                                     "<:thonk_yellow_fruit:324662249090449418>  |  <@!{}>, I'd give {} an 11/10").format(author.id, thing_to_rate)
+        elif thing_to_rate.count("lime") > 0: # if there is lime
+            await Yello.send_message(channel,
+                                     "<:thonk_yellow_fruit:324662249090449418>  |  <@!{}>, I'd give {} a -666/10").format(author.id, thing_to_rate)
+        else: # if it's just a normal thing
+            await Yello.send_message(channel,
+                                     "<:thonk_yellow_fruit:324662249090449418>  |  <@!{}>, I'd give {} a {}/10").format(author.id, thing_to_rate, hash(thing_to_rate) % 11)
 
 @Yello.event
 async def on_message(message):
     for p in prefixes:
           if message.content.startswith(p):
-                    command = message.content[len(p):]
-                    do_command_stuff(command, message.channel)
-                    break
+              command = message.content[len(p):] # cut out the prefix
+              do_command_stuff(command, message.channel, message.author)
+              break
 
 #bot token
 Yello.run("token")
