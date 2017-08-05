@@ -2,9 +2,11 @@ import random
 import discord
 import asyncio
 #list of images (mems)
-imglist = ["1.jpg", "3.jpg", "4.gif", "5.gif", "6.png",
-          "7.png", "8.jpg", "9.jpg", "10.png", "11.jpg", "12.jpg",
-          "13.jpeg", "14.png", "15.png", "16.png"]
+imglist = ["http://i.imgur.com/fudWw3B.png", "http://i.imgur.com/pqxq50V.png", "http://i.imgur.com/z9j2MdA.jpg",
+          "http://i.imgur.com/wHzyvDC.png", "http://i.imgur.com/bsaaLai.jpg", "http://i.imgur.com/RUxQbCt.png",
+          "http://i.imgur.com/nNRolMW.gifv", "http://i.imgur.com/FzfbzrN.jpg", "http://i.imgur.com/WOtXRbU.jpg", 
+          "http://i.imgur.com/Y0sMxhI.png", "http://i.imgur.com/DvEfV1v.png", "http://i.imgur.com/gkqbDjd.jpg",
+          "http://i.imgur.com/B2uEC81.jpg", "http://i.imgur.com/85NtyVh.gifv", "http://i.imgur.com/lpNtyFm.jpg"]
 #name of client
 Yello = discord.Client()
 
@@ -33,10 +35,10 @@ def do_command_stuff(command, channel, author):
         await Yello.send_message(channel, 'Beware the Orangman!')
     #the only redeemable part of this mess, the memes
     elif command.startswith("meme"):
-        await Yello.send_file(channel, random.choice(imglist))
+        await Yello.send_message(channel, random.choice(imglist))
     #this was supossed to be a secret but i guess it isn't now :(
     elif command.startswith("don'tdaretousethiscommandisweartogodifyoufuckinguseityou'llgetfuckingbannedkiddo"):
-        await Yello.send_file(channel, "imnotevengonnasayitsname.jpg")
+        await Yello.send_message(channel, "http://i.imgur.com/VAJNVGF.jpg")
     elif command.startswith("rate"):
         thing_to_rate = strip(command[4:]) # remove the "rate" and also spaces at the beginning/end
         if thing_to_rate = "": # in case someone didn't specify what to rate
