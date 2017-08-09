@@ -29,7 +29,8 @@ def do_command_stuff(command, channel, author):
                                 >help: displays this message
                                 >classic: shows a message to our saviour
                                 >meme: shows a random image of yellow lord
-                                you can use <:yellow_fruit:337972191427821568> too, if you want""")
+                                you can use <:yellow_fruit:337972191427821568> too, if you want
+                                Github: https://github.com/Pigryphus/Botang""")
     #shows the needed pslam
     elif command.startswith("classic"):
         await Yello.send_message(channel, 'Beware the Orangman!')
